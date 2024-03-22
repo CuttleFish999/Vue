@@ -1,39 +1,40 @@
 <template>
     <div class="person">
-        <h2>姓名:{{ name }}</h2>
-        <h2>年齡:{{ age }}</h2>
-        <button @click="changeName">修改名子</button>
+        <label for="">姓:<input type="text" v-model="firstName"></label>
+        <label for="">名:<input type="text" v-model="lastName"></label>
+        <h1>全名:{{ fullName }}</h1>
         <button @click="changeAge">修改年齡</button>
-        <button @click="showTel">查看電話</button>
-
     </div>
 </template>
 
 
-<script setup lang="ts" name="Person324">
-    import {ref} from 'vue'
-    let name = ref('文生狗')
-    let age = ref(18)
-    let tel = '1388888'
-    function changeName(){
-            if(name.value === "文生狗"){
-                name.value = "Dog"
-            }else{
-                name.value = "文生狗"
-            }
-            
-        }
 
-        function changeAge(){
-            age.value ++
-        }
-    function showTel(){
-            alert(tel)
-        }
+<script setup lang="ts" name="Person324">
+import { ref, computed } from 'vue'
+
+let firstName = ref('娘')
+let lastName = ref('文生')
+
+let fullName = computed(() => {
+    return firstName.value.slice(0, 1).toUpperCase() + firstName.value.slice(1) + '-' + lastName.value
+})
+
+function changeName() {
+    name.value += '~'
+}
+
+function changeAge() {
+    age.value++
+}
 </script>
 
 
 <style scoped>
+input,
+label {
+    font-size: 2em;
+}
+
 .person {
     background-color: skyblue;
     box-shadow: 0 0 10px;
@@ -41,7 +42,11 @@
     padding: 20px;
 }
 
-button{
+button {
     margin: 0 1em
+}
+
+li {
+    font-size: 2em;
 }
 </style>
