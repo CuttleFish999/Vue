@@ -1,35 +1,34 @@
 <template>
     <div class="person">
-        <h2>姓名:{{ name }}</h2>
-        <h2>年齡:{{ age }}</h2>
+        <h2>姓名:{{ dog.name }}，年齡:{{ dog.age }}</h2>
+        
         <button @click="changeName">修改名子</button>
         <button @click="changeAge">修改年齡</button>
-        <button @click="showTel">查看電話</button>
-
+        <button @click="showInfo">显示信息</button>
     </div>
 </template>
 
 
 <script setup lang="ts" name="Person324">
-    import {ref} from 'vue'
-    let name = ref('文生狗')
-    let age = ref(18)
-    let tel = '1388888'
+    import {reactive} from 'vue'
+    let dog = reactive({name:"文生狗" , age:18})
+
     function changeName(){
-            if(name.value === "文生狗"){
-                name.value = "Dog"
+            if(dog.name === "文生狗"){
+                dog.name = "Dog"
             }else{
-                name.value = "文生狗"
+                dog.name = "文生狗"
             }
             
         }
 
-        function changeAge(){
-            age.value ++
-        }
-    function showTel(){
-            alert(tel)
-        }
+    function changeAge(){
+        dog.age++
+    }
+
+    // function showTel(){
+    //     alert(tel)
+    // }
 </script>
 
 
