@@ -1,31 +1,25 @@
 <template>
     <div class="person">
-        <label for="">姓:<input type="text" v-model="firstName"></label>
-        <label for="">名:<input type="text" v-model="lastName"></label>
-        <h1>全名:{{ fullName }}</h1>
-        <button @click="changeAge">修改年齡</button>
+        <h2>sum:{{ sum }}</h2>
+        <button @click="changeSum">sum++</button>
+
     </div>
 </template>
 
 
 
 <script setup lang="ts" name="Person324">
-import { ref, computed } from 'vue'
+import { ref, watch } from 'vue'
 
-let firstName = ref('娘')
-let lastName = ref('文生')
+let sum = ref(0)
 
-let fullName = computed(() => {
-    return firstName.value.slice(0, 1).toUpperCase() + firstName.value.slice(1) + '-' + lastName.value
+function changeSum() {
+    sum.value++
+}
+
+watch(sum, (newValue, oldValue) => {
+    console.log('sum is change',newValue, oldValue)
 })
-
-function changeName() {
-    name.value += '~'
-}
-
-function changeAge() {
-    age.value++
-}
 </script>
 
 
