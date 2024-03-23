@@ -7,9 +7,15 @@
 
 
 <script setup lang="ts" name="Person">
-    import {type  PersonInter} from '@/types'
-    
-    let person:PersonInter = {id:'123' , name:'222',age:20}
+import { type PersonInter , type Persons } from '@/types'
+
+// let person:PersonInter = {id:'123' , name:'222',age:20}
+let personList: Array<PersonInter> = [
+    { id: '1', name: '222', age: 20 }
+    { id: '2', name: '222', age: 20 }
+    { id: '3', name: '222', age: 20 }
+]
+
 </script>
 
 
