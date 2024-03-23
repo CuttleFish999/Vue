@@ -2,7 +2,7 @@
     <div class="person">
         <h2>{{ a }}</h2>
         <ul>
-            <li v-for="a in list">{{ a.id }} - {{ a.name }} - {{ a.age }}</li>
+            <li v-for="a in list" :key="a.id">{{ a.id }} - {{ a.name }} - {{ a.age }}</li>
         </ul>
     </div>
 </template>
