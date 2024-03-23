@@ -1,21 +1,19 @@
 <template>
     <div class="person">
-        ???
+        <h2>{{ a }}</h2>
+        <ul>
+            <li v-for="a in list">{{ a.id }} - {{ a.name }} - {{ a.age }}</li>
+        </ul>
     </div>
 </template>
 
 
 
 <script setup lang="ts" name="Person">
-import { type PersonInter , type Persons } from '@/types'
+    import {defineProps} from 'vue'
 
-// let person:PersonInter = {id:'123' , name:'222',age:20}
-let personList: Array<PersonInter> = [
-    { id: '1', name: '222', age: 20 },
-    { id: '2', name: '222', age: 20 },
-    { id: '3', name: '222', age: 20 }
-]
-
+    let x = defineProps(['a','list'])
+    console.log(x.a)
 </script>
 
 
