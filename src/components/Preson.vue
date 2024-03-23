@@ -7,7 +7,7 @@
 
 
 <script setup lang="ts" name="Person">
-import { type PersonInter } from '@/types'
+import { type PersonInter , type Persons } from '@/types'
 
 // let person:PersonInter = {id:'123' , name:'222',age:20}
 let personList: Array<PersonInter> = [
