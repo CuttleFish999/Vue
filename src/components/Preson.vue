@@ -1,9 +1,9 @@
 <template>
     <div class="person">
-        <h2>temp:{{ temp }}</h2>
-        <h2>sum:{{ sum }}</h2>
-        <button @click="changeTemp">sum++</button>
-        <button @click="changeSum">sum++</button>
+       <h1 ref="title2">台北</h1>
+       <h1 id="title2">桃園</h1>
+
+       <button @click="showLog">輸出</button>
     </div>
 </template>
 
@@ -12,30 +12,12 @@
 <script setup lang="ts" name="Person">
 import { ref, watch , watchEffect } from 'vue'
 
-let temp = ref(10)
-let sum = ref(0)
+let title2 = ref()
 
-function changeSum() {
-    sum.value++
+
+function showLog(){
+    console.log(title2.value)
 }
-
-function changeTemp(){
-    temp.value += 10
-}
-
-// watch([temp , sum],(value)=>{
-//     let [newTemp , newSum] = value
-//     console.log(newTemp,newSum)
-//     if(newTemp >= 60 || newSum >= 80){
-//         console.log("get")
-//     }
-// })
-
-watchEffect(()=>{
-    if(temp.value >= 60 || sum.value >= 3){
-        console.log("get")
-    }
-})
 
 
 </script>
