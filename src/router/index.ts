@@ -21,8 +21,17 @@ const router = createRouter({
             component: News,
             children: [
                 {
-                    path: 'detail',
-                    component: Detail
+                    name:"meow",
+                    path: 'detail/:id/:title/:content',
+                    component: Detail,
+                    // props:true
+                    props(){
+                        return{
+                            id:100,
+                            title:200,
+                            content:300
+                        }
+                    }
                 }
             ]
         },

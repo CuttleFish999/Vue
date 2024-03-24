@@ -3,17 +3,16 @@
         <ul>
             <li v-for="news in newList" :key="news.id">
                 <!-- <RouterLink :to="`/News/Detail?id=${news.id}&title=${news.title}&content=${news.content}`">{{news.title}}</RouterLink> -->
-                <RouterLink 
-                    :to="{
-                    path:'/News/Detail?',
-                    query:{
+                <!-- <RouterLink :to="`/News/Detail/${news.id}/${news.title}/${news.content}`">{{news.title}}</RouterLink> -->
+                <RouterLink :to="{
+                    name:'meow',
+                    params:{
                         id:news.id,
                         title:news.title,
                         content:news.content
                     }
-                }"
-                >
-                    {{ news.title }}
+                }">
+                {{ news.title }}
                 </RouterLink>
             </li>
         </ul>
@@ -37,4 +36,6 @@ const newList = reactive([
 </script>
 
 
-<style></style>
+<style>
+
+</style>
