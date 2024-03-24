@@ -24,7 +24,14 @@ const router = createRouter({
                     name:"meow",
                     path: 'detail/:id/:title/:content',
                     component: Detail,
-                    props:true
+                    // props:true
+                    props(){
+                        return{
+                            id:100,
+                            title:200,
+                            content:300
+                        }
+                    }
                 }
             ]
         },
