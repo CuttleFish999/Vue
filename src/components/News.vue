@@ -1,7 +1,9 @@
 <template>
     <div class="news">
         <ul>
-            <li v-for="news in newList" :key="news.id"><RouterLink to="/News/Detail">{{news.title}}</RouterLink></li>
+            <li v-for="news in newList" :key="news.id">
+                <RouterLink :to="`/News/Detail?id=${news.id}&title=${news.title}&content=${news.content}`">{{news.title}}</RouterLink>
+            </li>
         </ul>
     </div>
 
