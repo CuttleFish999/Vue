@@ -1,19 +1,27 @@
 <template>
-  <Person a="ha" :list="personList"/>
+
+  <div class="app">
+    <h2 class="title">vue route</h2>
+
+    <div class="naviagte">
+      <RouterLink to="/home" class="active">首頁</RouterLink>
+      <RouterLink to="/news">新聞</RouterLink>
+      <RouterLink to="/about">關於</RouterLink>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <RouterView></RouterView>
+  </div>
+
 </template>
 
 <script lang="ts" setup name="App">
-  import Person from './components/Preson.vue'
-  import {reactive} from 'vue'
-  import {type Persons} from '@/types'
+// import Home from './components/Home.vue'
+// import About from './components/About.vue'
+// import News from './components/News.vue'
 
-  let personList = reactive<Persons>([
-    {id:'1' , name : "一" , age:18},
-    {id:'2' , name : "二" , age:19},
-    {id:'3' , name : "三" , age:20}
-  ])
-
-  
+import { RouterView , RouterLink } from 'vue-router'
 
 
 
