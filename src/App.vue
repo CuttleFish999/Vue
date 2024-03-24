@@ -4,9 +4,9 @@
     <h2 class="title">vue route</h2>
 
     <div class="naviagte">
-      <RouterLink to="/home" class="active">首頁</RouterLink>
-      <RouterLink to="/news">新聞</RouterLink>
-      <RouterLink to="/about">關於</RouterLink>
+      <RouterLink to="/home" active-class="active">首頁</RouterLink>
+      <RouterLink to="/news" active-class="active">新聞</RouterLink>
+      <RouterLink to="/about" active-class="active">關於</RouterLink>
     </div>
   </div>
 
@@ -34,5 +34,9 @@ import { RouterView , RouterLink } from 'vue-router'
   box-shadow: 0 0 10px;
   border-radius: 10px;
   padding: 20px;
+}
+
+.active{
+  color: yellow;
 }
 </style>
