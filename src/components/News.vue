@@ -36,4 +36,6 @@ const newList = reactive([
 </script>
 
 
-<style></style>
+<style>
+
+</style>
