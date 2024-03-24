@@ -1,21 +1,38 @@
 <template>
     <div class="person">
-        ???
+        <h2>sum:{{ sum }}</h2>
+        <button @click="add">add</button>
     </div>
+    <hr>
+    <img v-for="(dog,index) in dogList" :src="dog" alt="" :key="index">
+    <button @click="getDog">oneMoreDog</button>
 </template>
 
 
 
 <script setup lang="ts" name="Person">
-import { type PersonInter , type Persons } from '@/types'
+    import {ref , reactive} from 'vue'
+    import axios from 'axios'
 
-// let person:PersonInter = {id:'123' , name:'222',age:20}
-let personList: Array<PersonInter> = [
-    { id: '1', name: '222', age: 20 }
-    { id: '2', name: '222', age: 20 }
-    { id: '3', name: '222', age: 20 }
-]
+    let sum = ref(0)
+    let dogList = reactive([
+        'https:\/\/images.dog.ceo\/breeds\/pembroke\/n02113023_1136.jpg',
+        'https:\/\/images.dog.ceo\/breeds\/pembroke\/n02113023_6140.jpg'
+    ])
 
+    function add(){
+        sum.value ++
+    }
+
+    async function getDog(){
+        try{
+            let result = await axios.get('https://dog.ceo/api/breed/pembroke/images/random')
+            dogList.push(result.data.message)
+        }catch(error){
+            alert(error)
+        }
+        
+    }
 </script>
 
 
@@ -38,5 +55,9 @@ button {
 
 li {
     font-size: 2em;
+}
+img{
+    height: 100px;
+    margin-right: 1em;
 }
 </style>
