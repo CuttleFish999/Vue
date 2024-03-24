@@ -1,9 +1,9 @@
 <template>
     <div class="news">
         <ul>
-            <li>標號:{{route.query.a}}</li>
-            <li>標題:{{route.query.b}}</li>
-            <li>內容:{{route.query.c}}</li>
+            <li>標號:{{route.query.id}}</li>
+            <li>標題:{{route.query.title}}</li>
+            <li>內容:{{route.query.content}}</li>
         </ul>
     </div>
 </template>
